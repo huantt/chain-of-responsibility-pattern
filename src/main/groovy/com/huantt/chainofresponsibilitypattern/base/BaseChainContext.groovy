@@ -1,4 +1,4 @@
-package con.huantt.chainofresponsibilitypattern.base
+package com.huantt.chainofresponsibilitypattern.base
 
 import groovy.transform.CompileStatic
 

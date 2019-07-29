@@ -1,6 +1,6 @@
-package con.huantt.chainofresponsibilitypattern.process
+package com.huantt.chainofresponsibilitypattern.process
 
-import con.huantt.chainofresponsibilitypattern.base.BaseChainProcess
+import com.huantt.chainofresponsibilitypattern.base.BaseChainProcess
 import groovy.transform.CompileStatic
 import org.springframework.stereotype.Service
 
@@ -12,12 +12,12 @@ import org.springframework.stereotype.Service
 class ChargeMoneyOfSender extends BaseChainProcess<ChainContext> {
 
     @Override
-    boolean execute() {
+    RESPONSE execute() {
         if (!context.transferMoney || context.transferMoney > context.moneyOfSender) {
-            return PROCESSING_COMPLETE
+            return RESPONSE.PROCESSING_COMPLETE_EARLY
         } else {
             context.moneyOfSender -= context.transferMoney
-            return CONTINUE_PROCESSING
+            return RESPONSE.CONTINUE_PROCESSING
         }
     }
 }

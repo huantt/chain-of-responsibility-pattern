@@ -1,6 +1,6 @@
-package con.huantt.chainofresponsibilitypattern
+package com.huantt.chainofresponsibilitypattern
 
-import con.huantt.chainofresponsibilitypattern.process.TransferMoneyProcessor
+import com.huantt.chainofresponsibilitypattern.process.TransferMoneyProcessor
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.ApplicationContext

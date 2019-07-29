@@ -1,4 +1,4 @@
-package con.huantt.chainofresponsibilitypattern.base
+package com.huantt.chainofresponsibilitypattern.base
 
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -8,11 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired
 @CompileStatic
 abstract class BaseChainProcess<C extends BaseChainContext> {
 
-    public static final boolean CONTINUE_PROCESSING = false
-    public static final boolean PROCESSING_COMPLETE = true
+    public static enum RESPONSE {
+        CONTINUE_PROCESSING, PROCESSING_COMPLETE, PROCESSING_COMPLETE_EARLY
+    }
 
     @Autowired
     protected C context
 
-    public abstract boolean execute()
+    public abstract RESPONSE execute()
 }

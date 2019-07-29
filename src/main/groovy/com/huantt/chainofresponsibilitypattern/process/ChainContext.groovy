@@ -1,6 +1,6 @@
-package con.huantt.chainofresponsibilitypattern.process
+package com.huantt.chainofresponsibilitypattern.process
 
-import con.huantt.chainofresponsibilitypattern.base.BaseChainContext
+
 import groovy.transform.CompileStatic
 import org.springframework.stereotype.Component
 
@@ -9,7 +9,10 @@ import org.springframework.stereotype.Component
  */
 @CompileStatic
 @Component
-class ChainContext implements BaseChainContext{
+class ChainContext implements com.huantt.chainofresponsibilitypattern.base.BaseChainContext {
+
+    String senderCardNumber
+    String receiverCardNumber
 
     double transferMoney
     double moneyOfReceiver

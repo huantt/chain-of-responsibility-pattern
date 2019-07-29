@@ -1,6 +1,6 @@
-package con.huantt.chainofresponsibilitypattern.process
+package com.huantt.chainofresponsibilitypattern.process
 
-import con.huantt.chainofresponsibilitypattern.base.Chain
+import com.huantt.chainofresponsibilitypattern.base.Chain
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -19,7 +19,12 @@ class TransferMoneyProcessor {
     @Autowired
     IncreaseMoneyForReceiver increaseMoneyForReceiver
 
-    boolean transfer(String senderCardNumber, String receiverCardNumber, double transferMoney) {
+    Chain.STATUS transfer(String senderCardNumber, String receiverCardNumber, double transferMoney) {
+        chainContext.with {
+            setSenderCardNumber(senderCardNumber)
+            setReceiverCardNumber(receiverCardNumber)
+            setTransferMoney(transferMoney)
+        }
         chainContext.refreshData()
 
         Chain chain = new Chain([
